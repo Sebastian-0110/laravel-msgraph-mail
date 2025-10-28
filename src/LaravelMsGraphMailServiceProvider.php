@@ -34,10 +34,10 @@ class LaravelMsGraphMailServiceProvider extends PackageServiceProvider
 
             return new MicrosoftGraphTransport(
                 new MicrosoftGraphApiService(
-                    tenantId: $this->requireConfigString($config, 'tenant_id'),
-                    clientId: $this->requireConfigString($config, 'client_id'),
-                    clientSecret: $this->requireConfigString($config, 'client_secret'),
-                    accessTokenTtl: $accessTokenTtl,
+                    $this->requireConfigString($config, 'tenant_id'),
+                    $this->requireConfigString($config, 'client_id'),
+                    $this->requireConfigString($config, 'client_secret'),
+                    $accessTokenTtl,
                 ),
             );
         });
