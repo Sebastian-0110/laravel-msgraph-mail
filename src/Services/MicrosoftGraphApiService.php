@@ -10,12 +10,22 @@ use InnoGE\LaravelMsGraphMail\Exceptions\InvalidResponse;
 
 class MicrosoftGraphApiService
 {
+    protected readonly string $tenantId;
+    protected readonly string $clientId;
+    protected readonly string $clientSecret;
+    protected readonly int $accessTokenTtl;
+
     public function __construct(
-        protected readonly string $tenantId,
-        protected readonly string $clientId,
-        protected readonly string $clientSecret,
-        protected readonly int $accessTokenTtl
-    ) {}
+        string $tenantId,
+        string $clientId,
+        string $clientSecret,
+        int $accessTokenTtl
+    ) {
+        $this->tenantId = $tenantId;
+        $this->clientId = $clientId;
+        $this->clientSecret = $clientSecret;
+        $this->accessTokenTtl = $accessTokenTtl;
+    }
 
     public function sendMail(string $from, array $payload): Response
     {
