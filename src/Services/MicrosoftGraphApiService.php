@@ -10,10 +10,10 @@ use InnoGE\LaravelMsGraphMail\Exceptions\InvalidResponse;
 
 class MicrosoftGraphApiService
 {
-    protected readonly string $tenantId;
-    protected readonly string $clientId;
-    protected readonly string $clientSecret;
-    protected readonly int $accessTokenTtl;
+    protected string $tenantId;
+    protected string $clientId;
+    protected string $clientSecret;
+    protected int $accessTokenTtl;
 
     public function __construct(
         string $tenantId,
