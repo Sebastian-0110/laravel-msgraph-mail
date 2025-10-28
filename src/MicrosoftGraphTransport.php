@@ -17,12 +17,15 @@ use Symfony\Component\Mime\MessageConverter;
 
 class MicrosoftGraphTransport extends AbstractTransport
 {
+    protected MicrosoftGraphApiService $microsoftGraphApiService;
+
     public function __construct(
-        protected MicrosoftGraphApiService $microsoftGraphApiService,
+        MicrosoftGraphApiService $microsoftGraphApiService,
         ?EventDispatcherInterface $dispatcher = null,
         ?LoggerInterface $logger = null
     ) {
         parent::__construct($dispatcher, $logger);
+        $this->microsoftGraphApiService = $microsoftGraphApiService;
     }
 
     public function __toString(): string
